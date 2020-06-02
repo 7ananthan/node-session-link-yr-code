@@ -1,12 +1,10 @@
 var express=require("express")
 
 const server=express()
-server.listen(3000,function(){
-    console.log("server started listing....")
-})
+server.set("view engine","ejs");
 
 server.get("/",function(req,res){
-    res.sendFile(__dirname+"/views/home.html")
+    res.render("login")
 
 })
 server.get("/home",function(req,res){
@@ -14,6 +12,9 @@ server.get("/home",function(req,res){
 
 })
 server.get("/login",function(req,res){
-    res.send("This is login page........")
+    res.sendFile(__dirname+"/views/login.html")
 
+})
+server.listen(3000,function(){
+    console.log("server started listing....")
 })
